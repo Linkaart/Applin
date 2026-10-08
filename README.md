@@ -1,48 +1,58 @@
-# Inventory Management
+# 🧾 Applin
 
-This project was generated with [Ignite UI CLI](https://github.com/IgniteUI/igniteui-cli) version 14.3.12.<br>
-The template builds upon a project bootstrapped with [Vite](https://vitejs.dev/).
+Application web de gestion commerciale : tableau de bord, produits, commandes, ventes et clients, avec grilles de données et graphiques.
 
-## Development server
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Ignite UI](https://img.shields.io/badge/Ignite_UI-React-0099ff)
 
-Run `ig start` to build the application, start a web server and open the application in the default browser. <br>
-The default serving port is `http://localhost:3003/`. Default serving port can be configured in `ignite-ui-cli.json` via `defaultProp` property.
+## Pages
 
-## Build
+| Page | Contenu |
+|---|---|
+| Accueil | Tableau de bord : ventes totales, ventes par catégorie, nouveaux produits |
+| Produits | Catalogue avec ajout et modification de produits (formulaires en boîte de dialogue) |
+| Commandes | Grille des commandes avec filtre |
+| Ventes | Graphique du chiffre d'affaires |
+| Clients | Grille de données |
+| Devis | Page en cours de développement |
 
-Run `ig build` to build the application into an output directory.
+Composants principaux : grilles de données (`IgrGrid`), graphiques (`IgrCategoryChart`, `IgrPieChart`), listes, cartes et formulaires Ignite UI.
 
-## Step by step mode
+## Stack technique
 
-If you want to get a guided experience through the available options, you can initialize the step by step mode that will help you to create and setup your new application, as well as update a project previously created with the Ignite UI CLI. To start the guide, simply run the `ig` command.
+- **React 18** + **TypeScript**, routage avec **React Router**
+- **Ignite UI for React** (grilles, graphiques, composants de formulaire)
+- **Vite** pour le développement et le build
+- **Vitest** + Testing Library pour les tests
 
-## List templates
+Le projet a été initialisé avec [Ignite UI CLI](https://github.com/IgniteUI/igniteui-cli). Les données proviennent d'API de démonstration (jeux de données Northwind et e-commerce).
 
-The `ig list` command lists all available templates for this project.
+## Structure
 
-## Adding components
+```
+src/app/
+├── accueil/ produits/ commandes/ ventes/ clients/ devis/   # une page par dossier (composant, styles, test)
+├── services/        # appels aux API de données
+├── hooks/           # hooks de chargement des données
+├── models/          # types TypeScript
+└── app-routes.tsx   # déclaration des routes
+```
 
-Add a new component or template to the project passing component ID and choosing a name.
+## Lancer le projet
 
-`ig add <component/template> <component_name>`
+```bash
+git clone https://github.com/Linkaart/Applin.git
+cd Applin
+npm install
+npm start          # serveur de développement Vite
+```
 
-The ID matches either a component ("grid", "category-chart", etc) or a predefined template. Predefined templates can provide either multiple components or fulfilling a specific use case like "form-validation", "master-detail" and so on.
-
-## Running unit tests
-
-Run `ig test` to execute the unit tests.
-
-## Commands Help
-
-`ig help` lists the available commands and provides a brief description of what they do.
-
-## Learn More
-
-To get more help on the IgniteUI CLI go check out the [IgniteUI CLI Wiki](https://github.com/IgniteUI/igniteui-cli/wiki).
-
-Learn more about Vite features in the [Vite documentation](https://vitejs.dev/guide/).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-
-
+| Commande | Rôle |
+|---|---|
+| `npm start` | serveur de développement |
+| `npm run build` | build de production |
+| `npm run preview` | aperçu du build |
+| `npm test` | tests Vitest |
+| `npm run lint` | analyse ESLint |
